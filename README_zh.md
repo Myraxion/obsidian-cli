@@ -46,7 +46,7 @@ npx skills add Myraxion/obsidian-cli
 
 ### 手动安装
 
-将 `SKILL.md` 和 `references/` 目录复制到对应 Agent 的技能目录中：
+将 `skills/obsidian-cli/` 目录复制到对应 Agent 的技能目录中：
 
 - 项目级：`.agents/skills/obsidian-cli/`（或 `.claude/skills/obsidian-cli/`）
 - 全局级：`~/.agents/skills/obsidian-cli/`（或 `~/.claude/skills/obsidian-cli/`）
@@ -57,11 +57,11 @@ npx skills add Myraxion/obsidian-cli
 
 | 文件 | 覆盖范围 |
 |------|---------|
-| [`SKILL.md`](SKILL.md) | 安全红线规则与任务路由逻辑 |
-| [`references/note-operations.md`](references/note-operations.md) | 笔记读写、模板实例化、双链安全重命名/移动、日记与本地历史快照 |
-| [`references/search-metadata.md`](references/search-metadata.md) | 全文检索、Bases 数据库、Frontmatter 属性、标签、双链与待办任务 |
-| [`references/commands.md`](references/commands.md) | 命令面板命令发现与执行 |
-| [`references/vault-management.md`](references/vault-management.md) | 工作区布局、标签页、插件主题生态、多 Vault 定位与 Sync |
+| [`skills/obsidian-cli/SKILL.md`](skills/obsidian-cli/SKILL.md) | 安全红线规则与任务路由逻辑 |
+| [`skills/obsidian-cli/references/note-operations.md`](skills/obsidian-cli/references/note-operations.md) | 笔记读写、模板实例化、双链安全重命名/移动、日记与本地历史快照 |
+| [`skills/obsidian-cli/references/search-metadata.md`](skills/obsidian-cli/references/search-metadata.md) | 全文检索、Bases 数据库、Frontmatter 属性、标签、双链与待办任务 |
+| [`skills/obsidian-cli/references/commands.md`](skills/obsidian-cli/references/commands.md) | 命令面板命令发现与执行 |
+| [`skills/obsidian-cli/references/vault-management.md`](skills/obsidian-cli/references/vault-management.md) | 工作区布局、标签页、插件主题生态、多 Vault 定位与 Sync |
 
 ## 故障排查
 

@@ -46,7 +46,7 @@ npx skills add Myraxion/obsidian-cli
 
 ### Manual installation
 
-Copy `SKILL.md` and the `references/` directory into your agent's skill directory:
+Copy the `skills/obsidian-cli/` directory into your agent's skill directory:
 
 - Project: `.agents/skills/obsidian-cli/` (or `.claude/skills/obsidian-cli/`)
 - Global: `~/.agents/skills/obsidian-cli/` (or `~/.claude/skills/obsidian-cli/`)
@@ -57,11 +57,11 @@ The skill uses on-demand references to keep base context consumption minimal:
 
 | File | Scope |
 |------|-------|
-| [`SKILL.md`](SKILL.md) | Safety guardrails and routing logic |
-| [`references/note-operations.md`](references/note-operations.md) | Reading, creating, link-safe renaming/moving, daily notes, and file history |
-| [`references/search-metadata.md`](references/search-metadata.md) | Live search, Bases, frontmatter properties, tags, backlinks, and tasks |
-| [`references/commands.md`](references/commands.md) | Command palette discovery and execution |
-| [`references/vault-management.md`](references/vault-management.md) | Workspaces, tabs, plugins, themes, multi-vault targeting, and Sync |
+| [`skills/obsidian-cli/SKILL.md`](skills/obsidian-cli/SKILL.md) | Safety guardrails and routing logic |
+| [`skills/obsidian-cli/references/note-operations.md`](skills/obsidian-cli/references/note-operations.md) | Reading, creating, link-safe renaming/moving, daily notes, and file history |
+| [`skills/obsidian-cli/references/search-metadata.md`](skills/obsidian-cli/references/search-metadata.md) | Live search, Bases, frontmatter properties, tags, backlinks, and tasks |
+| [`skills/obsidian-cli/references/commands.md`](skills/obsidian-cli/references/commands.md) | Command palette discovery and execution |
+| [`skills/obsidian-cli/references/vault-management.md`](skills/obsidian-cli/references/vault-management.md) | Workspaces, tabs, plugins, themes, multi-vault targeting, and Sync |
 
 ## Troubleshooting
 
