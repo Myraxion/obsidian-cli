@@ -51,7 +51,7 @@ obsidian property:read name="status" path="Projects/Plan.md"
 obsidian property:set name="priority" value="1" type=number path="Projects/Plan.md"
 ```
 
-Without `path=` or `active`, `tags`, `aliases`, and `properties` return vault-wide results (no `all` flag needed). Use `counts`, `total`, and `format=` only on commands that document them. Property types: `text`, `list`, `number`, `checkbox`, `date`, `datetime`; use `property:remove name=... path=...` to remove a property. Inspect frontmatter before changing it.
+Without `path=` or `active`, `tags`, `aliases`, and `properties` return vault-wide results (no `all` flag needed). Use `counts`, `total`, and `format=` only on commands that document them. Property types: `text`, `list`, `number`, `checkbox`, `date`, `datetime`; use `property:remove name=... path=...` to remove a property. Inspect frontmatter before changing it. For batch property updates, prefer editing the note's YAML block directly using filesystem tools instead of looping `property:set`.
 
 ## Tasks
 

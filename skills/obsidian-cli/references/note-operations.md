@@ -4,13 +4,13 @@ Target notes with exact vault-relative paths (`path="Folder/Note.md"`). Prefer `
 
 > [!IMPORTANT]
 >
-> - **Plain read & write**: Always prefer native filesystem tools to read or write notes. Do NOT use `obsidian create` to pass complex or multiline markdown through shell parameters.
+> - **Plain read & write**: Prefer native filesystem tools for reading or writing known-path notes and batch Frontmatter updates. Do NOT use `obsidian create` to pass complex or multiline markdown through shell parameters.
 > - **When to use CLI**:
+>   - Dynamic lifecycle notes: `obsidian daily` (opens/creates with templates auto-rendered), `obsidian daily:path` (resolves path without guessing directories), `obsidian daily:append/prepend`
 >   - Read active note without knowing path: `obsidian read` (no path)
 >   - Rename or move: `obsidian rename`, `obsidian move` (crucial: auto-updates backlinks across the vault)
 >   - Parse structure/stats: `obsidian outline`, `obsidian wordcount`
 >   - Templates & UI opening: `obsidian create template=...`, `open` or `newtab`
->   - Daily notes: `obsidian daily:append/prepend` (silent logs), `obsidian daily:read/path`
 >   - File history & diff: `obsidian history`, `obsidian diff`, `obsidian history:restore` (version rollback)
 
 ## Read, open, and inspect
@@ -65,7 +65,7 @@ obsidian daily:prepend content="## Morning goals"  # prepend entry
 obsidian daily                                     # open today's daily note in app UI
 ```
 
-`daily` opens today's note; `daily:append` and `daily:prepend` automatically create today's note if it does not exist yet, and write silently without opening unless `open` is specified. They support `inline` (omit newline) and `paneType=tab|split|window`. No `silent` flag is needed.
+`daily` opens today's note; `daily:append` and `daily:prepend` automatically create today's note if it does not exist yet, and write silently without opening unless `open` is specified. They support `inline` (omit newline) and `paneType=tab|split|window`. No `silent` flag is needed. `daily` automatically triggers configured templates (e.g., Templater); never crawl directories to locate or create daily notes manually.
 
 ## Templates
 

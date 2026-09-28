@@ -13,13 +13,28 @@ Never reload or restart the Obsidian app/window from an agent session. Never rel
 
 Require explicit user intent for permanent deletion, history/Sync restoration, publishing or unpublishing, plugin/theme installation or removal, and restricted-mode changes. Prefer reversible actions; inspect targets before bulk mutations. Reference examples do not authorize changes.
 
-## Read only the relevant guide
+Assume installed plugins, templates, and scripts work as intended. Unless an explicit error occurs or the user explicitly asks for debugging, DO NOT proactively inspect plugin configs (`.obsidian/plugins/`), template scripts, or external APIs. Trust commands to execute their internal logic automatically; verify outcomes via the generated note or exit status.
 
-Load only the reference(s) directly needed for the task; do not load unrelated guides.
+## Decision Paradigms & Guide Routing
 
-| Task | Reference |
-|------|-----------|
-| Read, open, write, files/folders, daily notes, templates, history, diff, rename, delete | [Note operations](references/note-operations.md) |
-| Search, tags, properties, tasks aggregation, backlinks, bookmarks, recents, Bases | [Search, metadata, tasks, and Bases](references/search-metadata.md) |
-| Discover and execute core and community plugin commands | [Commands](references/commands.md) |
-| Workspace layout, tabs, plugins, themes, vault info, multi-vault targeting, Sync | [Vault, workspace, and environment](references/vault-management.md) |
+For multi-step workflows, decompose the task and apply the matching paradigm at each step. Before executing CLI commands in any paradigm, view its referenced guide for exact syntax and flags; **NEVER guess CLI commands**.
+
+1. **In-place content I/O** (Intent: read known notes, edit body paragraphs, batch-update frontmatter/YAML tags):
+   - *Rule*: ALWAYS use native filesystem tools directly to read, edit, or replace content (including entire YAML blocks).
+   - *Guide*: **None** (use native workspace tools directly; do not load CLI guides).
+
+2. **Note lifecycle & safe mutation** (Intent: daily/periodic notes, template instantiation, read active note, open in UI/newtab, rename/move, history diff & rollback):
+   - *Rule*: ALWAYS use CLI to resolve paths/templates automatically, protect internal links (rename/move), or inspect local version snapshots. NEVER traverse the filesystem to guess note paths or dates.
+   - *Guide*: [Note operations](references/note-operations.md)
+
+3. **Live search, metadata & Bases** (Intent: full-text search, query backlinks/tags/tasks/properties, Bases database queries):
+   - *Rule*: ALWAYS query Obsidian's in-memory live index and graph cache. NEVER perform raw filesystem grep/walk for whole-vault searches or task aggregations.
+   - *Guide*: [Search, metadata, tasks, and Bases](references/search-metadata.md)
+
+4. **Host automation & commands** (Intent: run Linter, format note, toggle views, trigger community plugin actions):
+   - *Rule*: Dispatch actions through Obsidian's command palette system. Treat execution as a black box; do not inspect internal scripts.
+   - *Guide*: [Commands](references/commands.md)
+
+5. **Vault, workspace & environment** (Intent: workspace layout save/load, tabs management, plugin/theme toggling, multi-vault targeting, Sync check):
+   - *Rule*: Manage workspace tabs, app layout, and vault settings via CLI. NEVER restart the app window or disable the agent's host plugin.
+   - *Guide*: [Vault, workspace, and environment](references/vault-management.md)
