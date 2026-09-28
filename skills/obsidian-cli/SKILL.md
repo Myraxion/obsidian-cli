@@ -17,14 +17,14 @@ Assume installed plugins, core settings, and templates work as intended. Unless 
 
 ## Decision Paradigms & Guide Routing
 
-For multi-step workflows, decompose the task and apply the matching paradigm at each step. Before executing CLI commands in any paradigm, view its referenced guide for exact syntax and flags; **NEVER guess CLI commands**.
+For multi-step workflows, decompose the task and apply the matching paradigm at each step. Before executing CLI commands in any paradigm, view its referenced guide for exact syntax and flags; **use only documented commands, NEVER guess or invoke unlisted CLI subcommands**.
 
 1. **In-place content I/O** (Intent: read known notes, edit body paragraphs, batch-update frontmatter/YAML tags):
    - *Rule*: ALWAYS use native filesystem tools directly to read, edit, or replace content (including entire YAML blocks).
    - *Guide*: **None** (use native workspace tools directly; do not load CLI guides).
 
 2. **Note lifecycle & safe mutation** (Intent: daily/periodic notes, template instantiation, read active note, open in UI/newtab, rename/move, history diff & rollback):
-   - *Rule*: ALWAYS use CLI to resolve paths/templates automatically, protect internal links (rename/move), or inspect local version snapshots. NEVER traverse the filesystem to guess note paths or dates.
+   - *Rule*: ALWAYS use CLI when app runtime context is essential: executing template rendering, triggering daily notes, maintaining wikilink integrity on rename/move, or inspecting version history. Trust commands to handle lifecycle logic internally.
    - *Guide*: [Note operations](references/note-operations.md)
 
 3. **Live search, metadata & Bases** (Intent: full-text search, query backlinks/tags/tasks/properties, Bases database queries):

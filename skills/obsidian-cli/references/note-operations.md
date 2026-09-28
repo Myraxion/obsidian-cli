@@ -1,13 +1,13 @@
 # Note operations
 
-Target notes with exact vault-relative paths (`path="Folder/Note.md"`). Prefer `path=` over `file=` (fuzzy wikilink) to ensure deterministic targeting.
+Target notes with exact vault-relative paths (`path="Folder/Note.md"`). Prefer `path=` over `file=` (fuzzy wikilink) to ensure deterministic targeting. Destination paths and folders (e.g. `to="Folder/"`) are always relative to the vault root; do not pre-scan the vault to locate directories.
 
 > [!IMPORTANT]
 >
 > - **Plain read & write**: Prefer native filesystem tools for reading or writing known-path notes and batch Frontmatter updates. Do NOT use `obsidian create` to pass complex or multiline markdown through shell parameters.
 > - **When to use CLI**:
 >   - Dynamic lifecycle notes: `obsidian daily` (opens/creates with templates auto-rendered), `obsidian daily:path` (resolves path without guessing directories), `obsidian daily:append/prepend`
->   - Read active note without knowing path: `obsidian read` (no path)
+>   - Read active note without knowing path: `obsidian read` (no path), `obsidian file` (active path & stats)
 >   - Rename or move: `obsidian rename`, `obsidian move` (crucial: auto-updates backlinks across the vault)
 >   - Parse structure/stats: `obsidian outline`, `obsidian wordcount`
 >   - Templates & UI opening: `obsidian create template=...`, `open` or `newtab`
@@ -19,6 +19,7 @@ For notes with a known path, use filesystem tools directly. Use the CLI for the 
 
 ```sh
 obsidian read                                      # read currently active file in app
+obsidian file                                      # get active note path and metadata
 obsidian open path="Folder/Note.md" newtab         # open in new tab (avoids replacing active tab)
 obsidian outline path="Folder/Note.md" format=json # heading structure (format=tree|md|json, total)
 obsidian wordcount path="Folder/Note.md" words     # word count (words, characters)
@@ -27,7 +28,7 @@ obsidian files folder="Projects/" ext=md           # list files (supports ext=md
 obsidian folders folder="Projects/"                # list folders (supports total)
 ```
 
-`open` **replaces the active tab** by default; always include `newtab` to protect the user's current workspace. `read`, `outline`, and `wordcount` default to the active file. `folder path=... info=files|folders|size` returns specific folder statistics.
+`open` **replaces the active tab** by default; always include `newtab` to protect the user's current workspace. `read`, `file`, `outline`, and `wordcount` default to the active file. `folder path=... info=files|folders|size` returns specific folder statistics.
 
 ## Create and edit
 
@@ -47,11 +48,18 @@ Prefer CLI commands here over filesystem operations so Obsidian can automaticall
 
 ```sh
 obsidian rename path="Drafts/Note.md" name="New Name"
-obsidian move path="Drafts/Note.md" to="Published/Note.md"
-obsidian delete path="Scratch.md"                  # system trash by default
+obsidian move path="Drafts/Note.md" to="Published/"           # move into folder (preserves filename)
+obsidian move path="Drafts/Note.md" to="Published/Final.md"   # move and rename in one step
+obsidian delete path="Scratch.md"                             # system trash by default
 ```
 
-`rename` preserves the extension if omitted; `move to=` accepts a folder or full destination path. Link updates depend on the vault's automatic-update setting. Check the target before deleting; `delete permanent` bypasses trash and requires explicit intent.
+`rename` preserves the extension if omitted. Link updates depend on the vault's automatic-update setting. Check the target before deleting; `delete permanent` bypasses trash and requires explicit intent.
+
+**Move contract (trust the CLI, never pre-check)**:
+
+- `to=` accepts either a destination folder (`to="Published/"`) or a full path (`to="Published/Final.md"`). When targeting a folder, the source filename is preserved automatically.
+- **Collision-safe & EAFP**: Run `obsidian move` directly without prior existence probing. If the destination note already exists, the CLI safely aborts with `Error: Destination file already exists!`.
+- If the destination directory does not exist, the CLI throws `ENOENT`; create the directory using native filesystem tools only upon encountering this error.
 
 ## Daily notes
 
