@@ -29,12 +29,12 @@ For multi-step workflows, decompose the task and apply the matching paradigm at 
 
 3. **Live search, metadata & Bases** (Intent: full-text search, query backlinks/tags/tasks/properties, Bases database queries):
    - *Rule*: ALWAYS query Obsidian's in-memory live index and graph cache. NEVER perform raw filesystem grep/walk for whole-vault searches or task aggregations.
-   - *Guide*: [Search, metadata, tasks, and Bases](references/search-metadata.md)
+   - *Guide*: [Search, metadata, tasks, and Bases](references/search-indexes.md)
 
 4. **Host automation & commands** (Intent: run Linter, format note, toggle views, trigger community plugin actions):
    - *Rule*: Dispatch actions through Obsidian's command palette system. Treat execution as a black box; do not inspect internal scripts.
-   - *Guide*: [Commands](references/commands.md)
+   - *Guide*: [App commands](references/app-commands.md)
 
 5. **Vault, workspace & environment** (Intent: workspace layout save/load, tabs management, plugin/theme toggling, multi-vault targeting, Sync check):
    - *Rule*: Manage workspace tabs, app layout, and vault settings via CLI. NEVER restart the app window or disable the agent's host plugin.
-   - *Guide*: [Vault, workspace, and environment](references/vault-management.md)
+   - *Guide*: [Vault, workspace, and environment](references/workspace-vault.md)

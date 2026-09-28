@@ -1,4 +1,4 @@
-# Commands
+# App commands
 
 Obsidian's Command Palette includes all actions registered by both core features and installed community plugins.
 

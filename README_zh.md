@@ -59,9 +59,9 @@ npx skills add Myraxion/obsidian-cli
 |------|---------|
 | [`skills/obsidian-cli/SKILL.md`](skills/obsidian-cli/SKILL.md) | 安全红线规则与任务路由逻辑 |
 | [`skills/obsidian-cli/references/note-operations.md`](skills/obsidian-cli/references/note-operations.md) | 笔记读写、模板实例化、双链安全重命名/移动、日记与本地历史快照 |
-| [`skills/obsidian-cli/references/search-metadata.md`](skills/obsidian-cli/references/search-metadata.md) | 全文检索、Bases 数据库、Frontmatter 属性、标签、双链与待办任务 |
-| [`skills/obsidian-cli/references/commands.md`](skills/obsidian-cli/references/commands.md) | 命令面板命令发现与执行 |
-| [`skills/obsidian-cli/references/vault-management.md`](skills/obsidian-cli/references/vault-management.md) | 工作区布局、标签页、插件主题生态、多 Vault 定位与 Sync |
+| [`skills/obsidian-cli/references/search-indexes.md`](skills/obsidian-cli/references/search-indexes.md) | 全文检索、Bases 数据库、Frontmatter 属性、标签、双链与待办任务 |
+| [`skills/obsidian-cli/references/app-commands.md`](skills/obsidian-cli/references/app-commands.md) | 命令面板命令发现与执行 |
+| [`skills/obsidian-cli/references/workspace-vault.md`](skills/obsidian-cli/references/workspace-vault.md) | 工作区布局、标签页、插件主题生态、多 Vault 定位与 Sync |
 
 ## 故障排查
 

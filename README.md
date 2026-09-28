@@ -59,9 +59,9 @@ The skill uses on-demand references to keep base context consumption minimal:
 |------|-------|
 | [`skills/obsidian-cli/SKILL.md`](skills/obsidian-cli/SKILL.md) | Safety guardrails and routing logic |
 | [`skills/obsidian-cli/references/note-operations.md`](skills/obsidian-cli/references/note-operations.md) | Reading, creating, link-safe renaming/moving, daily notes, and file history |
-| [`skills/obsidian-cli/references/search-metadata.md`](skills/obsidian-cli/references/search-metadata.md) | Live search, Bases, frontmatter properties, tags, backlinks, and tasks |
-| [`skills/obsidian-cli/references/commands.md`](skills/obsidian-cli/references/commands.md) | Command palette discovery and execution |
-| [`skills/obsidian-cli/references/vault-management.md`](skills/obsidian-cli/references/vault-management.md) | Workspaces, tabs, plugins, themes, multi-vault targeting, and Sync |
+| [`skills/obsidian-cli/references/search-indexes.md`](skills/obsidian-cli/references/search-indexes.md) | Live search, Bases, frontmatter properties, tags, backlinks, and tasks |
+| [`skills/obsidian-cli/references/app-commands.md`](skills/obsidian-cli/references/app-commands.md) | Command palette discovery and execution |
+| [`skills/obsidian-cli/references/workspace-vault.md`](skills/obsidian-cli/references/workspace-vault.md) | Workspaces, tabs, plugins, themes, multi-vault targeting, and Sync |
 
 ## Troubleshooting
 
