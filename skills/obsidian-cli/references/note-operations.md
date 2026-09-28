@@ -55,17 +55,17 @@ obsidian delete path="Scratch.md"                  # system trash by default
 
 ## Daily notes
 
-Commands for the core Daily notes plugin. Automatically resolves the configured date format and folder.
+Commands for the core Daily notes plugin. Automatically resolves configured date formats, templates, and target folders. Commands are strictly idempotent and safe: missing notes are created and templates auto-rendered; existing notes are opened or appended without overwriting.
 
 ```sh
-obsidian daily:path                                # get today's note path (even before creation)
+obsidian daily paneType=tab                        # create or open today's note (idempotent, never overwrites)
 obsidian daily:read                                # read today's daily note content
 obsidian daily:append content="- [ ] Log item"     # append entry (creates note if absent; silent by default)
 obsidian daily:prepend content="## Morning goals"  # prepend entry
-obsidian daily                                     # open today's daily note in app UI
+obsidian daily:path                                # resolve path for subsequent filesystem tools
 ```
 
-`daily` opens today's note; `daily:append` and `daily:prepend` automatically create today's note if it does not exist yet, and write silently without opening unless `open` is specified. They support `inline` (omit newline) and `paneType=tab|split|window`. No `silent` flag is needed. `daily` automatically triggers configured templates (e.g., Templater); never crawl directories to locate or create daily notes manually.
+`daily` creates or opens today's note (`paneType=tab` avoids replacing the active tab); never pre-check note existence with filesystem tools (`test -f`) as CLI execution is self-contained. `daily:append` and `daily:prepend` create the note if absent, writing silently without opening unless `open` is specified. They support `inline` (omit newline) and `paneType=tab|split|window`. Use `daily:path` only when subsequent in-place filesystem editing is required.
 
 ## Templates
 

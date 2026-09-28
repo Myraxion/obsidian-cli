@@ -13,7 +13,7 @@ Never reload or restart the Obsidian app/window from an agent session. Never rel
 
 Require explicit user intent for permanent deletion, history/Sync restoration, publishing or unpublishing, plugin/theme installation or removal, and restricted-mode changes. Prefer reversible actions; inspect targets before bulk mutations. Reference examples do not authorize changes.
 
-Assume installed plugins, templates, and scripts work as intended. Unless an explicit error occurs or the user explicitly asks for debugging, DO NOT proactively inspect plugin configs (`.obsidian/plugins/`), template scripts, or external APIs. Trust commands to execute their internal logic automatically; verify outcomes via the generated note or exit status.
+Assume installed plugins, core settings, and templates work as intended. Unless an explicit error occurs or the user explicitly asks for debugging, DO NOT proactively inspect vault configurations (`.obsidian/`), template scripts, or external APIs. Trust commands to execute their internal logic automatically; verify outcomes via the generated note or exit status.
 
 ## Decision Paradigms & Guide Routing
 
